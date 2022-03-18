@@ -1,5 +1,9 @@
 package main
 
-func main(){
+import (
+	"Calculator"
+)
 
+func main(){
+	Calculator.AddOrSubtract()
 }

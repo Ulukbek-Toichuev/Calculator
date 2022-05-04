@@ -2,6 +2,7 @@ package Calculator
 
 import "fmt"
 
+//test
 //This function receives the arithmetic operation symbol
 func plusOrMinus(symbol string) string {
 	fmt.Println("Введите '+', либо, '-' , либо '*', либо '/' ")

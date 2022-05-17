@@ -4,6 +4,6 @@ import (
 	"Calculator"
 )
 
-func main(){
-	Calculator.AddOrSubtract()
+func main() {
+	Calculator.Calculate()
 }

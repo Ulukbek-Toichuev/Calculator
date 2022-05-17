@@ -5,31 +5,32 @@ import (
 )
 
 //This function receives the arithmetic operation symbol
-func GetArithmeticSymbol(symbol string) string {
+func GetArithmeticSymbol(symbol *string) string {
 	fmt.Println("Введите '+', либо, '-' , либо '*', либо '/' ")
 
-	_, err := fmt.Scan(&symbol)
+	_, err := fmt.Scan(symbol)
 
 	if err != nil {
 		fmt.Println("Неправильный формат ввода!")
-	} else if symbol != "+" && symbol != "-" && symbol != "*" && symbol != "/" {
+	} else if *symbol != "+" && *symbol != "-" && *symbol != "*" && *symbol != "/" {
 		fmt.Println("Неправильный формат ввода!")
 		return GetArithmeticSymbol(symbol)
 	}
-	return symbol
+	return *symbol
 }
 
-func AddOrSubtract() float64 {
+//This function calculates two numbers
+func Calculate() float64 {
 	var (
 		v1, v2, result float64
 		symbol         string
 	)
 
-	GetNumber1(&v1)
+	v1 = GetNumber1(&v1)
 
-	symbol = GetArithmeticSymbol(symbol)
+	symbol = GetArithmeticSymbol(&symbol)
 
-	GetNumber2(&v2)
+	v2 = GetNumber2(&v2)
 
 	switch symbol {
 	case "+":
@@ -46,8 +47,7 @@ func AddOrSubtract() float64 {
 		} else {
 			result = v1 / v2
 		}
-		fmt.Println(v1, symbol, v2, "=", result)
 	}
-
+	fmt.Println(v1, symbol, v2, "=", result)
 	return result
 }
